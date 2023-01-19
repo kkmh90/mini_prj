@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     'blog',
     'single_pages',
+    'sass_processor',
+    'accounts'
 ]
 
 MIDDLEWARE = [
@@ -131,6 +133,11 @@ STATIC_URL = 'static/'
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '_media')
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'), #경로를 합해주는 함수
+]
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
@@ -148,4 +155,9 @@ SITE_ID = 1
 
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'none'
-LOGIN_REDIRECT_URL = '/blog/'
+LOGIN_REDIRECT_URL = '/'
+
+
+SASS_OUTPUT_STYLE = 'compact'
+SASS_PROCESSOR_ENABLED = True
+SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, 'static')
